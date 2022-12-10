@@ -468,9 +468,9 @@ export default {
             request.post("User/Login","{\"ID\":"+this.loginForm.id+",\"Password\":\""+this.loginForm.password+"\"}", { headers})
                 .then(res => {
                 console.log(res);
-                if (res.data.status != 200)
-                  return this.$message.error("用户名或密码错误");
-                setToken(res.data.data.token);
+                  if (res.status != 200)
+                    return this.$message.error("用户名或密码错误");
+                  setToken(res.data.sessionId);
                 this.$router.push("/doctorLayout");
             })
             .catch(err => {
@@ -484,9 +484,9 @@ export default {
             request.post("User/Login","{\"ID\":"+this.loginForm.id+",\"Password\":\""+this.loginForm.password+"\"}", { headers})
                 .then(res => {
                 console.log(res);
-                if (res.data.status != 200)
-                  return this.$message.error("用户名或密码错误");
-                setToken(res.data.data.token);
+                  if (res.status != 200)
+                    return this.$message.error("用户名或密码错误");
+                  setToken(res.data.sessionId);
                 this.$router.push("/patientLayout");
             })
             .catch(err => {
